@@ -1,8 +1,5 @@
 <template>
-  <div class="container">
-    <!-- <pre>
-            {{ character }}
-    </pre> -->
+<b-container>
     <table class="table">
       <thead>
         <tr>
@@ -17,13 +14,13 @@
       </thead>
       <tbody v-for="character in characters" :key="character.id">
         <tr>
-          <td>{{character.name}}</td>
-          <td>{{character.last_name}}</td>
-          <td>{{character.phone_number}}</td>
-          <td>{{character.email}}</td>
-          <td>{{character.country}}</td>
-          <td>{{character.city}}</td>
-          <td>{{character.address}}</td>
+          <td>{{ character.name }}</td>
+          <td>{{ character.last_name }}</td>
+          <td>{{ character.phone_number }}</td>
+          <td>{{ character.email }}</td>
+          <td>{{ character.country }}</td>
+          <td>{{ character.city }}</td>
+          <td>{{ character.address }}</td>
           <td>
             <button @click="removeItem(character)">Remove</button>
             <button @click="modifyItem(character)">Modify</button>
@@ -31,7 +28,7 @@
         </tr>
       </tbody>
     </table>
-  </div>
+</b-container>
 </template>
 
 <script>
@@ -48,9 +45,10 @@ export default {
     async removeItem({ id }) {
       await this.$store.dispatch("removeItem", id);
     },
+    modifyItem(character) {
+      this.$store.commit('setCharacter', character)
+      this.$router.push(`/form`);
+    },
   },
-  async modifyItem({ id }) {
-    console.log(id)
-  }
 };
 </script>

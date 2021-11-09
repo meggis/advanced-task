@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/table',
+    path: '/',
     name: 'Table',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -13,7 +13,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../components/Table.vue')
   },
   {
-    path: '/form',
+    path: '/form/:id?',
     name: 'Form',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
